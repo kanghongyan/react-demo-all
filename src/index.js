@@ -4,15 +4,18 @@ import {Provider} from 'react-redux'
 import {createStore} from 'redux'
 import {Router} from 'react-router'; //import { hashHistory } from 'react-router
 import createHistory from 'history/lib/createHashHistory'; //用history替代react-router的hashHistory
+import { Map } from 'immutable'
 
 import './index.css';
 import routeConfig from './router';
 import appReducers from './reducers/index';
 
-let store = createStore(appReducers);
+// store obj
+const initialState = Map();
+let store = createStore(appReducers, initialState); // { dispatch(func), getState(func), replaceReducer(func), subscribe(func) }
 
 console.log(store);
-console.log(store.getState()); // {todos: [], visibilityFilter: 'showAll'}
+console.log(store.getState().get('visibilityFilter')); // {todos: [], visibilityFilter: 'showAll'}
 
 /*const routes = (
  <Route path="/" component={App}>

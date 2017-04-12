@@ -18,7 +18,13 @@ const getVisibleTodos = (todos, filter) => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
+/**
+ *
+ * @param dispatch
+ * @param [ownProps]
+ * @returns {{onTodoClick: (function(*=))}}
+ */
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onTodoClick: (id) => {
       dispatch(toggleTodo(id));
@@ -34,15 +40,15 @@ const mapDispatchToProps = (dispatch) => {
  * @param [ownProps] its value will be the props passed to your component, and mapStateToProps will be additionally re-invoked whenever the component receives new props
  * @returns {{todos}} 高级用法，也可返回function,该用法参见文档
  */
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     todos: getVisibleTodos(state.todos, state.visibilityFilter)
   }
 };
 
 const VisibleTodoList = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps, // 如果省略该参数，组件将不会监听store变化
+  mapDispatchToProps // 如果省略该参数，默认dispatch会注入到组件的props中
 )(TodoList); // Inject todos and all action creators (addTodo, completeTodo, ...) as actions
 
 export default VisibleTodoList
