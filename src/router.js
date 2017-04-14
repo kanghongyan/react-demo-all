@@ -23,6 +23,24 @@ const routeConfig = {
           }, 'test')
         },
       }]
+    },
+    {
+      path: 'page2',
+      getComponents(nextState, callback) {
+        require.ensure([], function (require) {
+          callback(null, require('./view/Page2').default);
+          // {xx: require('./view/Page1').default}
+        }, 'page2')
+      }
+    },
+    {
+      path: 'page4',
+      getComponents(nextState, callback) {
+        require.ensure([], function (require) {
+          callback(null, require('./view/Page4').default);
+          // {xx: require('./view/Page1').default}
+        }, 'page4')
+      }
     }
     /*{
      path: 'inbox',

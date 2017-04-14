@@ -3,31 +3,60 @@
  */
 import React from 'react'
 import {connect} from 'react-redux'
-import {addTodo} from '../actions'
+import {addTodo, updateAuthorName} from '../actions'
 
 // 无状态函数式组件
-// 组件不能访问this对象
 let AddTodo = ({dispatch}) => {
-  let input;
+  let inputList;
+  let inputAuthorName;
+  let inputListId;
   
-  console.log(this)
+  let updateName = (e) => {
+    e.stopPropagation();
+    dispatch(updateAuthorName({
+      id: +inputListId.value.trim(),
+      authorName: inputAuthorName.value.trim()
+    }))
+  }
   
   return (
     <div>
       <form onSubmit={e => {
         e.preventDefault();
-        if (!input.value.trim()) {
+        if (!inputList.value.trim()) {
           return
         }
-        dispatch(addTodo(input.value));
-        input.value = ''
+        dispatch(addTodo(inputList.value));
+        inputList.value = ''
       }}>
-        <input ref={node => {
-          input = node
-        }} />
-        <button type="submit">
-          Add Todo
-        </button>
+        
+        <p className="form-list">
+          <label>text: </label>
+          <input type="text" ref={node => { inputList = node }} />
+        </p>
+        
+        <p className="form-list tr">
+          <button type="submit">
+            Add Todo
+          </button>
+        </p>
+        
+        <p className="form-list">
+          <label>list id:</label>
+          <input type='number' ref={node => { inputListId = node }}/>
+        </p>
+        
+        <p className="form-list">
+          <label>auther name: </label>
+          <input type="text" ref={node => { inputAuthorName = node }}/>
+        </p>
+        
+        <p className="form-list tr">
+          <a className="btn" onClick={ updateName }>
+            update author name
+          </a>
+        </p>
+        
       </form>
     </div>
   )

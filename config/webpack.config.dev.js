@@ -82,7 +82,9 @@ module.exports = {
       'react-native': 'react-native-web'
     }
   },
-  
+  externals: {
+    "$": 'jQuery'
+  },
   module: {
     // First, run the linter.
     // It's important to do this before Babel processes the JS.

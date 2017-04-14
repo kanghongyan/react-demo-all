@@ -7,7 +7,6 @@ import './Header.scss';
 
 class App extends Component {
   componentWillMount() {
-    console.log(this.props);
   }
   
   render() {

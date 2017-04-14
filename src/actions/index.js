@@ -8,6 +8,14 @@ export const addTodo = (text) => {
   }
 };
 
+export const updateAuthorName = ({id, authorName}) => {
+  return {
+    type: 'UPDATE_AUTHOR_NAME',
+    id,
+    authorName
+  }
+};
+
 export const setVisibilityFilter = (filter) => {
   return {
     type: 'SET_VISIBILITY_FILTER',

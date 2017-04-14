@@ -6,7 +6,7 @@ import {Router} from 'react-router'; //import { hashHistory } from 'react-router
 import createHistory from 'history/lib/createHashHistory'; //用history替代react-router的hashHistory
 import { Map } from 'immutable'
 
-import './index.css';
+import './index.scss';
 import routeConfig from './router';
 import appReducers from './reducers/index';
 
@@ -14,7 +14,7 @@ import appReducers from './reducers/index';
 const initialState = Map();
 let store = createStore(appReducers, initialState); // { dispatch(func), getState(func), replaceReducer(func), subscribe(func) }
 
-console.log(store);
+console.log(store.getState());
 console.log(store.getState().get('visibilityFilter')); // {todos: [], visibilityFilter: 'showAll'}
 
 /*const routes = (

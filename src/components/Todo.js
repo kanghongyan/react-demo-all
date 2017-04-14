@@ -3,16 +3,17 @@
  */
 import React, { PropTypes } from 'react'
 
-
 // 函数式组件 参数是props，这里用es6的写法
-const Todo = ({ onClick, completed, text }) => (
+const Todo = ({ id, onClick, completed, text, authorName }) => (
   <li
     onClick={onClick}
     style={{
       textDecoration: completed ? 'line-through' : 'none'
     }}
   >
-    {text}
+    <b className="fl">{ id }</b>
+    <span>{ text }</span>
+    <span className="fr">by: { authorName }</span>
   </li>
 );
 

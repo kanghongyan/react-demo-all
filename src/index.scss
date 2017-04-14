@@ -1,0 +1,36 @@
+@import "./css/base.scss";
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.tr {
+  text-align: right;
+}
+
+.btn {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rosybrown;
+}
+
+.form-list {
+  margin: 10px;
+  label {
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+  }
+}
+input {
+  margin: 10px;
+  border: solid 1px gray;
+}
+
+button {
+  border: solid 1px rebeccapurple;
+}

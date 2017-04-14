@@ -4,7 +4,7 @@ import VisibleTodoList from '../containers/VisibleTodoList'
 
 class test extends Component {
   componentWillMount() {
-    console.log('test');
+    console.log('will mount test');
   }
   
   render() {
