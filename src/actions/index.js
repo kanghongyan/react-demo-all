@@ -1,5 +1,9 @@
 let nextTodoId = 0;
 
+// todo: use redux-actions
+
+// https://github.com/acdlite/redux-actions
+
 export const addTodo = (text) => {
   return {
     type: 'ADD_TODO',

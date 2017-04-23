@@ -25,6 +25,11 @@ class Page2 extends React.Component {
       // }
     });
     
+    this.props.router.push({
+      pathname: '/page1/12?name=123',
+      query: { modal: true },
+      // state: { fsd: 'fff' }
+    })
   }
   
   render() {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddTodo from '../containers/AddTodo'
 import VisibleTodoList from '../containers/VisibleTodoList'
+import IncrementLabel from '../containers/IncrementLabel'
 
 class test extends Component {
   componentWillMount() {
@@ -18,6 +19,8 @@ class test extends Component {
         <AddTodo/>
         <h5>=====result todolist:=====</h5>
         <VisibleTodoList/>
+        <h5>=====increment:=====</h5>
+        <IncrementLabel/>
       </div>
     );
   }

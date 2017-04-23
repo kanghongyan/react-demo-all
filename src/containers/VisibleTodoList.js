@@ -8,7 +8,7 @@ import { toggleTodo } from '../actions'
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
     case 'SHOW_ALL':
-      return todos.toArray();
+      return todos;
     case 'SHOW_COMPLETED':
       return todos.filter(t => t.completed)
     case 'SHOW_ACTIVE':
@@ -41,7 +41,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
  * @returns {{todos}} 高级用法，也可返回function,该用法参见文档
  */
 const mapStateToProps = (state, ownProps) => {
-  console.log(state.get('todos'))
   return {
     todos: getVisibleTodos(state.get('todos'), state.get('visibilityFilter'))
   }

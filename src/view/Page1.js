@@ -30,6 +30,7 @@ class Page1 extends Component {
   }
   
   componentDidMount() {
+    console.log(this)
   }
   
   // shouldComponentUpdate(nextProps, nextState) {

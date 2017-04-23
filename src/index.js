@@ -1,21 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
-import {createStore} from 'redux'
 import {Router} from 'react-router'; //import { hashHistory } from 'react-router
 import createHistory from 'history/lib/createHashHistory'; //用history替代react-router的hashHistory
-import { Map } from 'immutable'
 
+import store from './store'
 import './index.scss';
 import routeConfig from './router';
-import appReducers from './reducers/index';
 
-// store obj
-const initialState = Map();
-let store = createStore(appReducers, initialState); // { dispatch(func), getState(func), replaceReducer(func), subscribe(func) }
+import './util/CONFIG'
 
-console.log(store.getState());
-console.log(store.getState().get('visibilityFilter')); // {todos: [], visibilityFilter: 'showAll'}
+// test
+// import { fetchPosts } from './actions/sync'
+// store.dispatch(fetchPosts('reactjs')).then(() =>
+//   console.log(store.getState())
+// )
+// test end
+import { fetchThing } from './actions/createActions';
+store.dispatch(fetchThing('http://www.subreddit.com/r/reactjs.json'))
+
+
+
 
 /*const routes = (
  <Route path="/" component={App}>

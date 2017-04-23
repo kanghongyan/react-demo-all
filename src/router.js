@@ -6,7 +6,7 @@ const routeConfig = {
   component: Header,
   childRoutes: [
     {
-      path: 'page1',
+      path: 'page1/:a',
       // component: Page1
       getComponents(nextState, callback) {
         require.ensure([], function (require) {

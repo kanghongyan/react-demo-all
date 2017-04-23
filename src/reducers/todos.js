@@ -46,7 +46,7 @@ const todo = (state = {}, action) => {
 const todos = (state = List(), action) => {
   switch (action.type) {
     case 'ADD_TODO':
-      let iState = todo(undefined, action).toJS();
+      let iState = todo(undefined, action);
       return state.push(iState);
     case 'UPDATE_AUTHOR_NAME':
       return state.map((t) =>

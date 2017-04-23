@@ -4,6 +4,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {addTodo, updateAuthorName} from '../actions'
+import { increment } from '../actions/createActions'
 
 // 无状态函数式组件
 let AddTodo = ({dispatch}) => {
@@ -16,6 +17,12 @@ let AddTodo = ({dispatch}) => {
     dispatch(updateAuthorName({
       id: +inputListId.value.trim(),
       authorName: inputAuthorName.value.trim()
+    }))
+  };
+  
+  let updateIncrement = () => {
+    dispatch(increment({
+      amount: 1
     }))
   }
   
@@ -39,6 +46,7 @@ let AddTodo = ({dispatch}) => {
           <button type="submit">
             Add Todo
           </button>
+          <a className="btn" onClick={ updateIncrement }>increment</a>
         </p>
         
         <p className="form-list">
